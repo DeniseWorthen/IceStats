@@ -27,6 +27,8 @@ program icestats
      real(kind=8) :: tstamp0
      real(kind=4) :: rnum, area, extent, area15, mvar
 
+     real(kind=4) :: modmin,modmax
+
      real, dimension(igrid,jgrid)      :: ai, aihi, aihs
      ! generic field
      real, dimension(igrid,jgrid)      :: icevar, icesum
@@ -48,17 +50,6 @@ program icestats
 #ifdef use_cfsv2
    cdffile = trim(rtsrc)//'t126_SCRIP.nc'
 #else
-# ifdef use_cpc
-   ! runs start at 20120101
-   ne = 25
-# else
-   ! runs start at 20110401
-   ne = 7
-   ! runs start at 20120101
-   !ne = 25
-   ! runs start at 20110801
-   ! ne = 15
-# endif
    cdffile = trim(grdsrc)//'tripole.mx025.nc'
 #endif
 
@@ -114,25 +105,27 @@ program icestats
       call get_pfld(trim(cdffile),     trim('aice_h'),       ai,     1)
       call get_pfld(trim(cdffile),     trim('hi_h'  ),     aihi,     1)
       call get_pfld(trim(cdffile),     trim('hs_h'  ),     aihs,     1)
-
       do nr = 1,nreg
        rnum = float(nr)
        call areaextent(rnum,    ai,area,extent,area15)
        armod(nr) =   area
        exmod(nr) = extent
         ar15(nr) = area15
-       call    meanvar(rnum, aihi,ai,mvar,0.70)
+       call    meanvar(rnum, aihi,ai,mvar,0.70,.false.)
        himod(nr) = mvar
-       call    meanvar(rnum, aihs,ai,mvar,0.00)
+       call    meanvar(rnum, aihs,ai,mvar,0.00,.false.)
        hsmod(nr) = mvar
 
-       call    meanvar(rnum, icemelt,ai,mvar,0.00)
-       tmelt(nr) = mvar
-       call    meanvar(rnum, iceprod,ai,mvar,0.00)
-       tprod(nr) = mvar
+       !call    meanvar(rnum, icemelt,ai,mvar,0.00,.true.)
+       !tmelt(nr) = mvar
+       !call    meanvar(rnum, iceprod,ai,mvar,0.00,.true.)
+       !tprod(nr) = mvar
 
       enddo !nr
-     if(lstep .eq. 1 .or. lstep .eq. 35)print '(5i5,a2,a,e12.5)',nex,lstep,year,mon,day,'  ',trim(cdffile),exmod(15)
+      modmin = minval(ai,mask=ai .ne. mval)
+      modmax = maxval(ai,mask=ai .ne. mval)
+      if(lstep .eq. 1 .or. lstep .eq. 35)print '(5i5,a2,a,e12.5)',nex,lstep,year,mon,day,'  ',trim(cdffile),exmod(15)
+      if(modmin .eq. 0.0 .and. modmax .eq. 0.0)print '(4i5,2e12.5)',lstep,year,mon,day,modmin,modmax
      end if
  
      call set_taxis(year,mon,day)

@@ -92,6 +92,7 @@ module cdf
     rc = nf90_open(trim(cdffile), nf90_nowrite, ncid)
   !if(rc .ne. 0)print *,'looking for file ',trim(cdffile)
   if(rc .ne. 0)then
+   print *,' file not found '//trim(cdffile)
    rc = nf90_close(ncid)
    return
   endif

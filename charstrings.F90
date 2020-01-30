@@ -8,8 +8,8 @@ module charstrings
    character(len=120) ::  obssrc="/scratch2/NCEPDEV/climate/Denise.Worthen/IceData/"
    character(len=120) ::  grdsrc="/scratch2/NCEPDEV/climate/Denise.Worthen/TTout/"
 #ifdef use_cfsv2
-   character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/marine/Denise.Worthen/CFSv2/"
-   character(len= 80) ::  dirout="/scratch2/NCEPDEV/marine/Denise.Worthen/CFSv2/"
+   character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/climate/Denise.Worthen/CFSv2/"
+   character(len= 80) ::  dirout="/scratch2/NCEPDEV/climate/Denise.Worthen/CFSv2/"
    character(len= 10) ::    fsrc="cfs."
    character(len= 20) ::    wsrc="t126"
 #endif

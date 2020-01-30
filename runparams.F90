@@ -57,7 +57,7 @@ module runparams
    do ne = nexps,1,-1
     year = ymd(1,lbeg(ne)); mon = ymd(2,lbeg(ne)); day = ymd(3,lbeg(ne))
     if((year .eq. 2011) .and.  (mon .eq. 4))nefrst = ne 
-    !if((year .eq. 2012) .and.  (mon .eq. 1))nefrst = ne 
+    !if((year .eq. 2013) .and.  (mon .eq. 1))nefrst = ne 
     !if((year .eq. 2011) .and.  (mon .eq. 8))nefrst = ne 
    end do
 

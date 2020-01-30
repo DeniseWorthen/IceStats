@@ -49,11 +49,12 @@ module stats
 
   !---------------------------------------------------------------------
 
-   subroutine meanvar(reg,avar,ai,amean,aimin)
+   subroutine meanvar(reg,avar,ai,amean,aimin,weight)
 
-    real, intent( in) :: reg,aimin
-    real, intent( in), dimension(igrid,jgrid) :: avar, ai
-    real, intent(out) :: amean
+       real, intent( in) :: reg,aimin
+       real, intent( in), dimension(igrid,jgrid) :: avar, ai
+    logical, intent( in) :: weight
+       real, intent(out) :: amean
 
     integer :: nr,i,j,ij
        real :: asum, acnt
@@ -68,8 +69,12 @@ module stats
         j = jndx(nr,ij)
       if((avar(i,j) .ne. mval) .and. &
           (  ai(i,j) .ge. aimin))then
-        asum = asum +  avar(i,j)*ai(i,j)*parea(i,j)
-        acnt = acnt +            ai(i,j)*parea(i,j)
+        if(weight)then
+         asum = asum +  ai(i,j)*avar(i,j)*parea(i,j)
+        else
+         asum = asum +          avar(i,j)*parea(i,j)
+        end if
+        acnt = acnt +    ai(i,j)*parea(i,j)
        !print *,j,avar(i,j),ai(i,j),asum,acnt
       end if
     enddo

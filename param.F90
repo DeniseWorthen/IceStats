@@ -19,7 +19,7 @@ module param
   integer, parameter :: ijmax = igrid*jgrid
 
   integer, parameter ::    yrbeg = 2011, yrend = 2019
-  !integer, parameter ::    yrbeg = 2011, yrend = 2013
+  !integer, parameter ::    yrbeg = 2013, yrend = 2016
   integer, parameter ::   nyears = (yrend-yrbeg)+1
   integer, parameter ::     nmon = 12
   integer, parameter ::    ndays = 35
