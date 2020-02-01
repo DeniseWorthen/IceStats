@@ -105,6 +105,7 @@ program icestats
       call get_pfld(trim(cdffile),     trim('aice_h'),       ai,     1)
       call get_pfld(trim(cdffile),     trim('hi_h'  ),     aihi,     1)
       call get_pfld(trim(cdffile),     trim('hs_h'  ),     aihs,     1)
+
       do nr = 1,nreg
        rnum = float(nr)
        call areaextent(rnum,    ai,area,extent,area15)
@@ -115,7 +116,6 @@ program icestats
        himod(nr) = mvar
        call    meanvar(rnum, aihs,ai,mvar,0.00,.false.)
        hsmod(nr) = mvar
-
        !call    meanvar(rnum, icemelt,ai,mvar,0.00,.true.)
        !tmelt(nr) = mvar
        !call    meanvar(rnum, iceprod,ai,mvar,0.00,.true.)

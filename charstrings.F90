@@ -14,8 +14,8 @@ module charstrings
    character(len= 20) ::    wsrc="t126"
 #endif
 #ifdef use_m6c5
-   character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/stmp3/Denise.Worthen/BM3_ice/"
-   character(len= 80) ::  dirout="/scratch2/NCEPDEV/stmp3/Denise.Worthen/BM3_ice/"
+   character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/stmp3/Denise.Worthen/BM3_test/"
+   character(len= 80) ::  dirout="/scratch2/NCEPDEV/stmp3/Denise.Worthen/BM3_test/"
 
    character(len= 10) ::    fsrc=""
    character(len= 20) ::    wsrc="tripole.mx025"

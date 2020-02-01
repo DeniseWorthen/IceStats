@@ -41,9 +41,9 @@ module stats
     if(esum .eq. 0.0)esum = mval
     if( a15 .eq. 0.0) a15 = mval
     ! areas in km2
-    if(asum .ne. 0.0)asum = asum/1.0e12
-    if(esum .ne. 0.0)esum = esum/1.0e12
-    if( a15 .ne. 0.0) a15 =  a15/1.0e12
+    if(asum .ne. mval)asum = asum/1.0e12
+    if(esum .ne. mval)esum = esum/1.0e12
+    if( a15 .ne. mval) a15 =  a15/1.0e12
 
    end subroutine areaextent
 
