@@ -83,7 +83,7 @@ program icestats
   !
   !---------------------------------------------------------------------
 
-  outcdf = trim(rtsrc)//'stats.nc'
+  outcdf = trim(dirout)//'stats.nc'
   print *,'working on ',trim(outcdf)
   call write_cdf(trim(outcdf),0,0)
 
@@ -101,7 +101,8 @@ program icestats
          year = ymd(1,lll); mon = ymd(2,lll); day = ymd(3,lll) 
      if(nex .ge. nefrst)then
        call get_cdate(year,mon,day,cdate1,cdate2)
-      cdffile = trim(rtsrc)//trim(rtname)//'ice'//trim(cdate2)//'.01.'//trim(initdate)//'00.nc'
+      !cdffile = trim(rtsrc)//trim(rtname)//'ice'//trim(cdate2)//'.01.'//trim(initdate)//'00.nc'
+      cdffile = trim(rtsrc)//trim(rtname)//'ice'//trim(cdate2)//'.01.'//trim(initdate)//'00.subset.nc'
       call get_pfld(trim(cdffile),     trim('aice_h'),       ai,     1)
       call get_pfld(trim(cdffile),     trim('hi_h'  ),     aihi,     1)
       call get_pfld(trim(cdffile),     trim('hs_h'  ),     aihs,     1)
