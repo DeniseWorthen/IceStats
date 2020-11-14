@@ -43,6 +43,7 @@ module runparams
        if(nd .eq. 1 .or. nd .eq. 15)then
               nex = nex+1
         lbeg(nex) = lll
+        write(*,*)year,nm,nd,lll,nex,lbeg(nex)
        endif
       enddo
      enddo
@@ -52,13 +53,14 @@ module runparams
 
    do ne = 1,nexps
     year = ymd(1,lbeg(ne)); mon = ymd(2,lbeg(ne)); day = ymd(3,lbeg(ne))
-    if((year .eq. 2018) .and.  (mon .eq. 3))nelast = ne 
+    !if((year .eq. 2018) .and.  (mon .eq. 3))nelast = ne
+    if((year .eq. yrend) .and.  (mon .eq. 3))nelast = ne
    enddo
    do ne = nexps,1,-1
     year = ymd(1,lbeg(ne)); mon = ymd(2,lbeg(ne)); day = ymd(3,lbeg(ne))
-    if((year .eq. 2011) .and.  (mon .eq. 4))nefrst = ne 
-    !if((year .eq. 2013) .and.  (mon .eq. 1))nefrst = ne 
-    !if((year .eq. 2011) .and.  (mon .eq. 8))nefrst = ne 
+    if((year .eq. 2011) .and.  (mon .eq. 4))nefrst = ne
+    !if((year .eq. 2013) .and.  (mon .eq. 1))nefrst = ne
+    !if((year .eq. 2011) .and.  (mon .eq. 8))nefrst = ne
    end do
 
    do ne = nefrst,nelast

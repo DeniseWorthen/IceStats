@@ -12,7 +12,7 @@ F90 = ifort
 #F90 = ifort -warn
 
 #####################################################################
-# 
+#
 #####################################################################
 
 opt1 = -Duse_m6c5
@@ -22,10 +22,10 @@ opt1 = -Duse_m6c5
 
 optall = $(opt1) $(opt2) $(opt3) $(opt4)
 
-OBJS = param.o charstrings.o cdf.o variablelist.o regmask_regrid_north.o grdvar.o stats.o caldata.o runparams.o icestats.o tm_secs_from_bc.o write_cdf.o
+OBJS = param.o charstrings.o cdf.o variablelist.o regmask_regrid_north.o grdvar.o stats.o caldata.o runparams.o icestats.o tm_secs_from_bc.o write_cdf.o write_fieldcdf.o
 
-istat: $(OBJS) 
-	$(F90) $(FOPT) -o istat $(OBJS) -L$(CDF)/lib -lnetcdff -lnetcdf 
+istat: $(OBJS)
+	$(F90) $(FOPT) -o istat $(OBJS) -L$(CDF)/lib -lnetcdff -lnetcdf
 
 %.o: %.F90
 	$(F90) $(FOPT) $(optall) -c -I$(CDF)/include $<

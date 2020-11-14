@@ -19,7 +19,7 @@ module param
   integer, parameter :: ijmax = igrid*jgrid
 
   integer, parameter ::    yrbeg = 2011, yrend = 2019
-  !integer, parameter ::    yrbeg = 2013, yrend = 2016
+  !integer, parameter ::    yrbeg = 2011, yrend = 2013
   integer, parameter ::   nyears = (yrend-yrbeg)+1
   integer, parameter ::     nmon = 12
   integer, parameter ::    ndays = 35
@@ -32,10 +32,10 @@ module param
                                  + 5  &    ! GSFC regions
                                  + 1       ! SOcn (lat<50S)
 
-  character(len=18), dimension(nreg) :: regname = (/ "Gulf of Alaska   ", & 
-                                                     "Bering Sea       ", & 
+  character(len=18), dimension(nreg) :: regname = (/ "Gulf of Alaska   ", &
+                                                     "Bering Sea       ", &
                                                      "Chukchi Sea      ", &
-                                                     "Beaufort Sea     ", & 
+                                                     "Beaufort Sea     ", &
                                                      "Baffin Bay       ", &
                                                      "Lincoln Sea      ", &
                                                      "White Sea        ", &

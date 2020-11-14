@@ -1,2 +1,7 @@
-*.o *.i *.mod
-*jnl* *.nc
+*.o
+*.i
+*.mod
+*jnl*
+*.nc
+istat
+fort.20

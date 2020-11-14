@@ -11,14 +11,14 @@ module regmask_regrid_north
 #ifdef use_cfsv2
   integer, parameter :: n_s = 48334
 #endif
-#ifdef use_m6c5  
-  integer, parameter :: n_s = 1555200 
+#ifdef use_m6c5
+  integer, parameter :: n_s = 1555200
 #endif
-#ifdef use_sis2  
-  integer, parameter :: n_s = 1555200 
+#ifdef use_sis2
+  integer, parameter :: n_s = 1555200
 #endif
-#ifdef use_cpc  
-  integer, parameter :: n_s = 295200 
+#ifdef use_cpc
+  integer, parameter :: n_s = 295200
 #endif
 
   integer(kind=8), dimension(n_s), private :: col, row
@@ -106,4 +106,3 @@ module regmask_regrid_north
 
   end subroutine regmask_2model
 end module regmask_regrid_north
-

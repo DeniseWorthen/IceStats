@@ -6,7 +6,7 @@ module charstrings
 
    character(len=120) ::  wgtsrc="/scratch2/NCEPDEV/climate/Denise.Worthen/NEMS_INPUT0.1/regrids/"
    character(len=120) ::  obssrc="/scratch2/NCEPDEV/climate/Denise.Worthen/IceData/"
-   character(len=120) ::  grdsrc="/scratch2/NCEPDEV/climate/Denise.Worthen/TTout/"
+   character(len=120) ::  grdsrc="/scratch2/NCEPDEV/climate/Denise.Worthen/TTout2/"
 #ifdef use_cfsv2
    character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/climate/Denise.Worthen/CFSv2/"
    character(len= 80) ::  dirout="/scratch2/NCEPDEV/climate/Denise.Worthen/CFSv2/"
@@ -14,9 +14,12 @@ module charstrings
    character(len= 20) ::    wsrc="t126"
 #endif
 #ifdef use_m6c5
-   !character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/stmp3/Denise.Worthen/BM3_test/"
+   !character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/climate/Lydia.B.Stefanova/Models/ufs_p5/SeaIce/"
+   !character(len= 80) ::  dirout="/scratch2/NCEPDEV/climate/Denise.Worthen/IceData/"
+   !character(len= 10) ::    ssrc="p5"
    character(len= 80) ::   rtsrc="/scratch2/NCEPDEV/climate/Lydia.B.Stefanova/Models/ufs_b31/SeaIce/"
-   character(len= 80) ::  dirout="/scratch2/NCEPDEV/stmp3/Denise.Worthen/BM31_ice/"
+   character(len= 80) ::  dirout="/scratch2/NCEPDEV/climate/Denise.Worthen/IceData/"
+   character(len= 10) ::    ssrc="p31"
 
    character(len= 10) ::    fsrc=""
    character(len= 20) ::    wsrc="tripole.mx025"

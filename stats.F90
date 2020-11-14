@@ -33,7 +33,7 @@ module stats
       endif !
       if(ain(i,j) .lt. 0.15)then
         a15 = a15 + parea(i,j)*ain(i,j)
-      endif 
+      endif
      endif
     enddo
     !m2
@@ -59,7 +59,7 @@ module stats
     integer :: nr,i,j,ij
        real :: asum, acnt
 
-    ! sum(hi*ai*area)/sum(ai*area) = total ice vol/total ice area 
+    ! sum(hi*ai*area)/sum(ai*area) = total ice vol/total ice area
     ! => mean ice thick
        nr = int(reg)
     amean = mval
